@@ -11,8 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'deps/css/bootstrap/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'deps/css/my_css.css' %}">
-    <!-- Стиль footer-a для главной страницы -->
-    {% block css %}
+    <!-- Стиль footer-a для главной страницы -->{% block css %}
 
     {% endblock %}
     <!-- Favicons for different platforms -->
@@ -37,9 +36,7 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item dropdown ">
                         <a class="nav-link dropdown-toggle text-white" href="#" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">
-                            Информация
-                        </a>
+                           data-bs-toggle="dropdown" aria-expanded="false"> Информация </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item  text-white" href="#">Доставка и оплата</a></li>
                             <li><a class="dropdown-item  text-white" href="#">Контактная информация</a></li>
@@ -54,9 +51,7 @@
                     </li>
                     <li class="nav-item dropdown ">
                         <a class="nav-link dropdown-toggle text-white" href="#" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">
-                            Мой профиль
-                        </a>
+                           data-bs-toggle="dropdown" aria-expanded="false"> Мой профиль </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item  text-white" href="carts/cart.html">Корзина</a></li>
                             <li><a class="dropdown-item  text-white" href="users/profile.html">Личный кабинет</a>
@@ -70,8 +65,8 @@
                         </ul>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex" role="search" action="{% url 'catalog:search' %}" method='get'>
+                    <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success text-white" type="submit">Поиск</button>
                 </form>
             </div>
@@ -84,15 +79,13 @@
         <div class="row mt-1 position-fixed z-3">
             <!-- Каталог -->
             <div class="dropdown mb-2">
-                <button class="btn btn-secondary dropdown-toggle btn-dark" type="button" data-bs-toggle="dropdown"
-                        aria-expa nded="false">
+                <button class="btn btn-secondary dropdown-toggle btn-dark" type="button" data-bs-toggle="dropdown" aria-expa nded="false">
                     Каталог
                     <img class="mx-1" src="{% static 'deps/icons/grid-fill.svg' %}" alt="Catalog Icon" width="16"
                          height="16">
                 </button>
                 <ul class="dropdown-menu bg-dark" data-bs-theme="dark">
-                    {% tag_categories as categories %}
-                    {% for category in categories %}
+                    {% tag_categories as categories %} {% for category in categories %}
                     <li><a class="dropdown-item text-white" href="{% url 'catalog:index' category.slug %}">{{category.name}}</a>
                     </li>
                     {% endfor %}
@@ -104,8 +97,7 @@
                 <button type="button" class="btn btn-dark btn-secondary d-flex" id="modalButton"
                         aria-expanded="false">
                     <img class="mx-1" src="{% static 'deps/icons/basket2-fill.svg' %}" alt="Catalog Icon" width="24"
-                         height="24">
-                    <span id="goods-in-cart-count">0</span>
+                         height="24"> <span id="goods-in-cart-count">0</span>
                 </button>
             </div>
             <!-- Разметка модального окна корзины -->
@@ -137,8 +129,7 @@
                                                                         data-cart-change-url="">-</button>
                                                             </span>
                                                         <input type="text" class="form-control number" value="1"
-                                                               readonly>
-                                                        <span class="input-group-btn">
+                                                               readonly> <span class="input-group-btn">
                                                                 <button type="button"
                                                                         class="btn btn-dark btn-sm increment"
                                                                         data-cart-id=""
@@ -154,8 +145,7 @@
                                                     <a href="#" class="remove-from-cart" data-cart-id="">
                                                         <img class="mx-1"
                                                              src="{% static 'deps/icons/trash3-fill.svg' %}"
-                                                             alt="Catalog Icon" width="16" height="16">
-                                                    </a>
+                                                             alt="Catalog Icon" width="16" height="16"> </a>
                                                 </div>
                                             </div>
                                         </li>
@@ -169,9 +159,7 @@
                                 </div>
                                 <!-- Закончилась разметка корзины -->
                             </div>
-                            <a class="btn btn-dark" href="orders/create_order.html">
-                                Оформить заказ
-                            </a>
+                            <a class="btn btn-dark" href="orders/create_order.html"> Оформить заказ </a>
                         </div>
                     </div>
                 </div>
@@ -186,8 +174,7 @@
                 <!-- Пустой блок на Ваше усмотрение -->
             </div>
             <div class="col-lg-10">
-                <!-- Контент на странице -->
-                {% block content %}
+                <!-- Контент на странице -->{% block content %}
 
                 {% endblock %}
             </div>
