@@ -83,22 +83,23 @@
                 <div class="col-md-7">
                     <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
                         <h3 class="text-center mb-4">Корзина</h3>
-                    <div class="container" id="cart-items-container">
-                        <!-- Разметка корзины -->
-                        {% include 'carts/includes/included_cart.html' %}
-                        <!-- Закончилась разметка корзины -->
+                        <div class="container" id="cart-items-container">
+                            <!-- Разметка корзины -->{% include 'carts/includes/included_cart.html' %}
+                            <!-- Закончилась разметка корзины -->
+                        </div>
+                        {% if  carts %}
+                            <a class="btn btn-dark" href="../orders/create_order.html"> Оформить заказ </a>
+                        {% endif %}
                     </div>
-                    <a class="btn btn-dark" href="../orders/create_order.html"> Оформить заказ </a>
                 </div>
-            </div>
-            <!-- Оформленные заказы -->
-            <div class="col-md-12">
-                <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
-                    <h3 class="text-center mb-4">Мои заказы</h3>
-                    <!-- Разметка заказов -->
-                    <div class="container">
-                        <div class="accordion" id="accordionExample">
-                            <div class="accordion-item">
+                <!-- Оформленные заказы -->
+                <div class="col-md-12">
+                    <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
+                        <h3 class="text-center mb-4">Мои заказы</h3>
+                        <!-- Разметка заказов -->
+                        <div class="container">
+                            <div class="accordion" id="accordionExample">
+                                <div class="accordion-item">
                                 <h2 class="accordion-header" id="heading1">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
                                         Заказ № 256 - 09 сентября 2023 9:04 | Статус:<strong class="mx-2"> В
